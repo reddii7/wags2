@@ -306,5 +306,25 @@
     <script src="js/theme.min.js"></script>
 
 
+        <script>
+      let lastScrollTop = 0;
+      const navbar = document.querySelector('.navbar');
+    
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+        if (scrollTop > lastScrollTop) {
+          // Scrolling down
+          navbar.style.top = '-100px'; // Adjust the value based on your navbar height
+        } else {
+          // Scrolling up
+          navbar.style.top = '0';
+        }
+    
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For mobile or negative scrolling
+      });
+    </script>
+
+
   </body>
 </html>
